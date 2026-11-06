@@ -1,0 +1,78 @@
+l=["张三","赵敏","张绍刚","张无忌","武则天","马超"]
+l1=[]
+#把列表中所有姓张的人改成姓王，但是名字的顺序不变,列表的元素个数不确定
+
+#第一种方法，新建一个空列表储存所有元素
+for i in l:
+    if i.startswith("张"):
+        new="王"+i[1:]
+        l1.append(new)
+    else:
+        l1.append(i)
+print(l1)
+
+#第二种方法：不新建空列表，只对原来的列表进行替换
+for j in range(len(l)):
+    i=l[j]
+    if i.startswith("张"):
+        l[j]="王"+i[1:]
+print(l)
+
+l2=["jessica","mary","tom","sarah","jason","jessie"]
+#把列表中所有姓名的首字母改成大写，j打头的人改成L打头，列表顺序不变，列表长度未知
+#方法一，新建空列表
+l3=[]
+for i in l2:
+    t=i[0]
+    t=t.upper()
+    i=t+i[1:]
+    if i.startswith("J"):
+        i="L"+i[1:]
+        l3.append(i)
+    else:
+        l3.append(i)
+print(l3)
+#方法二：直接修改原来的列表：
+for j in range(len(l2)):
+    newname=l2[j][0].upper()+l2[j][1:]
+    if newname.startswith("J"):
+        newname="L"+l2[j][1:]
+        l2[j]=newname
+    l2[j]=newname
+print(l2)
+
+#列表的循环删除
+l=["赵敏","张绍刚","张无忌","武则天","嬴政","马超"]
+temp=[]
+#把姓张的人从列表里面删除
+for i in l:
+    if i.startswith("张"):
+        temp.append(i)
+for j in temp:
+    l.remove(j)
+print(l)
+
+#对于j开头的名字，把名字的首字母都大写，然后把t开头的人从列表里面删除
+l=["jessica","mary","tom","sarah","jason","jessie","jack","tony"]
+temp1=[]
+for j in range(len(l)):
+    i=l[j]
+    if i.startswith("j"):
+        i = i[0].upper() + i[1:]
+        l[j]=i
+for i in l:
+    if i.startswith("t"):
+        temp1.append(i)
+        l.remove(i)
+print(l)
+
+#删除所有小于等于60的数，并把剩下的数升序排列
+l=[45, 78, 52, 90, 33, 66, 59, 81]
+t=[]
+for i in l:
+    if i<=60:
+        t.append(i)
+for i in t:
+    l.remove(i)
+l.sort()
+print(l)
