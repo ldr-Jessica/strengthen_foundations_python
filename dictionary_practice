@@ -1,0 +1,75 @@
+s="apple,banana,orange,grape"
+l=[]
+f=s.split(',')
+for i in f:
+    l.append(i)
+l1=[]
+for i in l:
+    if len(i)>=5:
+        l1.append(i)
+res=" ".join(f)
+print(res)
+
+student={"name":"Li Hua","age":18,"score":90}
+student["gender"]="male"
+student["score"]=92
+student.pop("age")
+for k,v in student.items():
+    if k=="name":
+        print(v)
+print(student)
+
+books=[{"title":"bookA","price":32},{"title":"bookB","price":48},{"title":"bookC","price":25}]
+l=[]
+for i in books:
+    l.append(i["price"])
+    if i["price"]>=30:
+        print("价格超过30的书是",i["title"])
+a=0
+for i in l:
+    a=a+i
+print("三本书的总价格是",a)
+#循环删除列表
+nums=[12,7,18,5,24,9,30,11]
+l1=[]
+l2=[]
+for i in nums:
+    if i>=10:
+        l1.append(i)
+print(l1)
+for i in nums:
+    if i<10:
+        l2.append(i)
+    for i in l2:
+        if i in nums:
+            nums.remove(i)
+print(nums)
+
+l3=[]
+people={"zhangsan":{"age":17,"city":"Chengdu"},"lisi":{"age":22,"city":"Beijing"},"wangwu":{"age":19,"city":"Chengdu"},"zhaoliu":{"age":16,"city":"Shanghai"}}
+for k,v in people.items():
+    if v['city']=="Chengdu":
+        l3.append(k)
+    if v['age']>=18:
+        v["adult"]="True"
+    else:
+        v["adult"] = "False"
+print("住在成都的人是",l3)
+print(people)
+
+order = [
+    {"id": 1, "goods": ["milk", "bread"], "status": "pending"},
+    {"id": 2, "goods": ["egg"], "status": "finished"},
+    {"id": 3, "goods": ["rice", "oil", "salt"], "status": "pending"},
+    {"id": 4, "goods": ["meat"], "status": "cancelled"}
+]
+new_order=[]
+for i in order:
+    if i["status"]=="cancelled":
+        new_order.append(i)
+    elif i["status"]=="pending":
+        i["goods"].append("coupon")
+for i in new_order:
+    if i in order:
+        order.remove(i)
+print(order)
